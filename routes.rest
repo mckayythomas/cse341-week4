@@ -1,0 +1,23 @@
+### Home
+GET http://localhost:3000
+### Get all students
+GET http://localhost:3000/students
+### Get one student by ID
+GET http://localhost:3000/students/64696f51d4ec1b8202bf261d
+### create student 
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+    "primerNombre": "McKay",
+    "apellidos": "Thomas",
+    "grado": 3,
+    "seccion": "A"
+}
+### Get all students of a grade and section
+GET http://localhost:3000/students/5/A
+### api-docs
+GET http://localhost:3000/api-docs
+
+
+

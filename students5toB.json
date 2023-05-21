@@ -1,0 +1,110 @@
+[
+  {
+    "primerNombre": "Hugo Alberto",
+    "apellidos": "García Jiménez",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Marta Isabel",
+    "apellidos": "López Sánchez",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Manuel Antonio",
+    "apellidos": "Martínez González",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Ana María",
+    "apellidos": "Rodríguez Fernández",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Sofía Carmen",
+    "apellidos": "Pérez Torres",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Javier Alejandro",
+    "apellidos": "Hernández Ramírez",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "María José",
+    "apellidos": "Gómez Vargas",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Luis Miguel",
+    "apellidos": "Díaz Romero",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Elena Victoria",
+    "apellidos": "Suárez Navarro",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Pedro Juan",
+    "apellidos": "Torres Castro",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Isabel Laura",
+    "apellidos": "Ortiz López",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Fernando José",
+    "apellidos": "Morales Silva",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Carolina Andrea",
+    "apellidos": "Rojas Peña",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "David Alejandro",
+    "apellidos": "Vargas Ruiz",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Lucía Carmen",
+    "apellidos": "González Navarro",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Jorge Antonio",
+    "apellidos": "Sánchez Morales",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "María Inés",
+    "apellidos": "Fuentes López",
+    "grado": 5,
+    "seccion": "B"
+  },
+  {
+    "primerNombre": "Pablo Eduardo",
+    "apellidos": "Ramírez Castro",
+    "grado": 5,
+    "seccion": "B"
+  }
+]

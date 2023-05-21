@@ -1,0 +1,111 @@
+[
+    {
+      "primerNombre": "Diego Andrés",
+      "apellidos": "Santos Herrera",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Laura Valentina",
+      "apellidos": "López González",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Santiago Gabriel",
+      "apellidos": "Hernández Torres",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "María Alejandra",
+      "apellidos": "Rodríguez Silva",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Carlos Daniel",
+      "apellidos": "Pérez Ramírez",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Valeria Sofía",
+      "apellidos": "Gómez Vargas",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Juan Pablo",
+      "apellidos": "Martínez Jiménez",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Daniela Fernanda",
+      "apellidos": "García López",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Sara Isabel",
+      "apellidos": "Hernández Vargas",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Javier Alejandro",
+      "apellidos": "Torres Ramírez",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Camila Andrea",
+      "apellidos": "Ortiz González",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Juan David",
+      "apellidos": "Morales Silva",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Carolina Andrea",
+      "apellidos": "Rojas Peña",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Daniel Alejandro",
+      "apellidos": "Vargas Ruiz",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Lucía Carmen",
+      "apellidos": "González Navarro",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Jorge Antonio",
+      "apellidos": "Sánchez Morales",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "María Inés",
+      "apellidos": "Fuentes López",
+      "grado": 5,
+      "seccion": "A"
+    },
+    {
+      "primerNombre": "Pablo Eduardo",
+      "apellidos": "Ramírez Castro",
+      "grado": 5,
+      "seccion": "A"
+    }
+  ]
+  
