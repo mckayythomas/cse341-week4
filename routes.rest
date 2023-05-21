@@ -19,5 +19,22 @@ GET http://localhost:3000/students/5/A
 ### api-docs
 GET http://localhost:3000/api-docs
 
-
-
+### RENDER TESTING
+### Render home
+GET https://vgh-records.onrender.com
+### Render get students
+GET https://vgh-records.onrender.com/students
+### Render get one student
+GET https://vgh-records.onrender.com/students/64696f51d4ec1b8202bf251d
+### Render add new student
+POST https://vgh-records.onrender.com/students
+{
+    "primerNombre": "McKay",
+    "apellidos": "Thomas",
+    "grado": 3,
+    "seccion": "A"
+}
+### Render get class
+GET https://vgh-records.onrender.com/students/5/A
+### Render api-docs
+GET https://vgh-records.onrender.com/api-docs
