@@ -15,9 +15,21 @@ Content-Type: application/json
     "seccion": "A"
 }
 ### Get all students of a grade and section
-GET http://localhost:3000/students/5/A
+GET http://localhost:3000/students/5/B
 ### api-docs
 GET http://localhost:3000/api-docs
+###
+DELETE http://localhost:3000/students/64695d3ebe7b2c3d98507577
+###
+PUT http://localhost:3000/students/64695d3ebe7b2c3d98507576
+Content-Type: : application/json
+
+{
+    "primerNombre": "John",
+    "apellidos": "Smith",
+    "grado": 4,
+    "seccion": "D"
+}
 
 ### RENDER TESTING
 ### Render home

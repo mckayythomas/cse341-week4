@@ -14,8 +14,8 @@ const getStudents = async (req, res) => {
 };
 
 const getOneStudent = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db('vgh').collection('estudiantes').find({ _id: userId });
+  const studentId = new ObjectId(req.params.id);
+  const result = await mongodb.getDb().db('vgh').collection('estudiantes').find({ _id: studentId });
   if (result) {
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
@@ -70,4 +70,27 @@ const createStudent = async (req, res) => {
   }
 };
 
-module.exports = { getStudents, getOneStudent, createStudent, getClass };
+const deleteStudent = async (req, res) => {
+  const studentId = new ObjectId(req.params.id);
+  const result = await mongodb.getDb().db('vgh').collection('estudiantes').deleteOne({ _id: studentId });
+  if (result.deletedCount === 1) {
+    res.status(200).json({ message: 'Student deleted successfully ' + studentId });
+  } else {
+    res.status(404).json({ message: 'Student not found' });
+  }
+};
+
+const updateStudent = async (req, res) => {
+  const studentId = new ObjectId(req.params.id);
+  const { primerNombre, apellidos, grado, seccion } = req.body;
+  const filter = { _id: studentId };
+  const update = { $set: { primerNombre, apellidos, grado, seccion } };
+  const result = await mongodb.getDb().db('vgh').collection('estudiantes').updateOne(filter, update);
+  if (result.modifiedCount === 1) {
+    res.status(204).send();
+  } else {
+    res.status(404).json({ message: 'Student not found.' });
+  }
+};
+
+module.exports = { getStudents, getOneStudent, createStudent, getClass, deleteStudent, updateStudent };
