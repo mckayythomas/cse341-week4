@@ -51,3 +51,15 @@ POST https://vgh-records.onrender.com/students
 GET https://vgh-records.onrender.com/students/5/A
 ### Render api-docs
 GET https://vgh-records.onrender.com/api-docs
+### Render
+DELETE https://vgh-records.onrender.com/students/64695d3ebe7b2c3d98507577
+### Render
+PUT https://vgh-records.onrender.com/students/64695d3ebe7b2c3d98507576
+Content-Type: application/json
+
+{
+    "primerNombre": "John",
+    "apellidos": "Smith",
+    "grado": 4,
+    "seccion": "D"
+}
