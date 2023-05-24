@@ -3,7 +3,7 @@ GET http://localhost:3000
 ### Get all students
 GET http://localhost:3000/students
 ### Get one student by ID
-GET http://localhost:3000/students/64696f51d4ec1b8202bf261d
+GET http://localhost:3000/students/64695d3ebe7b2c3d98507576
 ### create student 
 POST http://localhost:3000/students
 Content-Type: application/json
@@ -22,7 +22,7 @@ GET http://localhost:3000/api-docs
 DELETE http://localhost:3000/students/64695d3ebe7b2c3d98507577
 ###
 PUT http://localhost:3000/students/64695d3ebe7b2c3d98507576
-Content-Type: : application/json
+Content-Type: application/json
 
 {
     "primerNombre": "John",
@@ -30,6 +30,7 @@ Content-Type: : application/json
     "grado": 4,
     "seccion": "D"
 }
+
 
 ### RENDER TESTING
 ### Render home

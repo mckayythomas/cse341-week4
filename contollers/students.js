@@ -83,10 +83,12 @@ const deleteStudent = async (req, res) => {
 const updateStudent = async (req, res) => {
   const studentId = new ObjectId(req.params.id);
   const { primerNombre, apellidos, grado, seccion } = req.body;
-  const filter = { _id: studentId };
-  const update = { $set: { primerNombre, apellidos, grado, seccion } };
-  const result = await mongodb.getDb().db('vgh').collection('estudiantes').updateOne(filter, update);
-  if (result.modifiedCount === 1) {
+  console.log(req.body)
+  const update = { primerNombre: primerNombre, apellidos: apellidos, grado: grado, seccion: seccion };
+  console.log(update)
+  const result = await mongodb.getDb().db('vgh').collection('estudiantes').updateOne({ _id: studentId }, { $set: update });
+  console.log(result)
+  if (result.acknowledged) {
     res.status(204).send();
   } else {
     res.status(404).json({ message: 'Student not found.' });

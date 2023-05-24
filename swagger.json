@@ -13,7 +13,7 @@
   "paths": {
     "/": {
       "get": {
-        "description": "",
+        "description": "API home page",
         "parameters": [],
         "responses": {
           "200": {
@@ -24,7 +24,7 @@
     },
     "/students/": {
       "get": {
-        "description": "",
+        "description": "Get all students",
         "produces": [
           "application/json"
         ],
@@ -39,7 +39,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Add new student",
         "parameters": [
           {
             "name": "body",
@@ -78,7 +78,7 @@
     },
     "/students/{id}": {
       "get": {
-        "description": "",
+        "description": "Get a single student by id.",
         "produces": [
           "application/json"
         ],
@@ -98,11 +98,70 @@
             "description": "Not Found"
           }
         }
+      },
+      "delete": {
+        "description": "Delete a student by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a student by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "primerNombre": {
+                  "example": "any"
+                },
+                "apellidos": {
+                  "example": "any"
+                },
+                "grado": {
+                  "example": "any"
+                },
+                "seccion": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
       }
     },
     "/students/{grado}/{seccion}": {
       "get": {
-        "description": "",
+        "description": "Get students from a single class and section",
         "produces": [
           "application/json"
         ],
@@ -149,7 +208,7 @@
         },
         "description": {
           "type": "string",
-          "example": "API documentation for CSE 341 contacts application"
+          "example": "API documentation for VGH student records application"
         }
       }
     },
