@@ -1,5 +1,6 @@
 const mongodb = require('../db/connection');
 const ObjectId = require('mongodb').ObjectId;
+const { validationResult } = require('express-validator');
 
 const getStudents = async (req, res) => {
   const result = await mongodb.getDb().db('vgh').collection('estudiantes').find();
@@ -14,8 +15,13 @@ const getStudents = async (req, res) => {
 };
 
 const getOneStudent = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(404).send()
+  }
+
   const studentId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db('vgh').collection('estudiantes').find({ _id: studentId });
+  const result = await mongodb.getDb().db('vgh').collection('estudiantes').findOne({ _id: studentId });
   if (result) {
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
@@ -27,12 +33,12 @@ const getOneStudent = async (req, res) => {
 };
 
 const getClass = async (req, res) => {
-  const grado = parseInt(req.params.grado);
-  const seccion = req.params.seccion;
-  const result = await mongodb.getDb().db('vgh').collection('estudiantes').find({ grado: grado, seccion: seccion });
+  const grado = parseInt(req.body.grado);
+  const seccion = req.body.seccion.toUpperCase();
+  const result = await mongodb.getDb().db('vgh').collection('estudiantes').find({ grado: { $eq: grado }, seccion: { $eq: seccion }});
+  
   if (result) {
     result.toArray().then((lists) => {
-      res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists);
     });
   } else {
@@ -41,16 +47,14 @@ const getClass = async (req, res) => {
 }
 
 const createStudent = async (req, res) => {
-  const { primerNombre, apellidos, grado, seccion } = req.body;
-
-  if (
-    !req.body.primerNombre ||
-    !req.body.apellidos ||
-    !req.body.grado ||
-    !req.body.seccion
-  ) {
-    return res.status(400).json({ message: 'Missing required fields.' });
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
   }
+
+  let { primerNombre, apellidos, grado, seccion } = req.body;
+  grado = parseInt(grado);
+  seccion = seccion.toUpperCase();
 
   const document = {
     contact: {
@@ -71,6 +75,11 @@ const createStudent = async (req, res) => {
 };
 
 const deleteStudent = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(404).send()
+  }
+
   const studentId = new ObjectId(req.params.id);
   const result = await mongodb.getDb().db('vgh').collection('estudiantes').deleteOne({ _id: studentId });
   if (result.deletedCount === 1) {
@@ -81,14 +90,17 @@ const deleteStudent = async (req, res) => {
 };
 
 const updateStudent = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const studentId = new ObjectId(req.params.id);
   const { primerNombre, apellidos, grado, seccion } = req.body;
-  console.log(req.body)
   const update = { primerNombre: primerNombre, apellidos: apellidos, grado: grado, seccion: seccion };
-  console.log(update)
   const result = await mongodb.getDb().db('vgh').collection('estudiantes').updateOne({ _id: studentId }, { $set: update });
   console.log(result)
-  if (result.acknowledged) {
+  if (result.matchedCount !== 0) {
     res.status(204).send();
   } else {
     res.status(404).json({ message: 'Student not found.' });

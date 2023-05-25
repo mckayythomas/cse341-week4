@@ -3,7 +3,7 @@ GET http://localhost:3000
 ### Get all students
 GET http://localhost:3000/students
 ### Get one student by ID
-GET http://localhost:3000/students/64695d3ebe7b2c3d98507576
+GET http://localhost:3000/students/64695d3ebe7b2c3d98507588
 ### create student 
 POST http://localhost:3000/students
 Content-Type: application/json
@@ -11,17 +11,22 @@ Content-Type: application/json
 {
     "primerNombre": "McKay",
     "apellidos": "Thomas",
-    "grado": 3,
+    "grado": "3",
     "seccion": "A"
 }
 ### Get all students of a grade and section
-GET http://localhost:3000/students/5/B
+GET http://localhost:3000/students/grado
+Content-Type: application/json
+{
+    "grado": 5,
+    "seccion": "A"
+}
 ### api-docs
 GET http://localhost:3000/api-docs
 ###
-DELETE http://localhost:3000/students/64695d3ebe7b2c3d98507577
+DELETE http://localhost:3000/students/646fa99e3403b8b20994c9b5
 ###
-PUT http://localhost:3000/students/64695d3ebe7b2c3d98507576
+PUT http://localhost:3000/students/64695d3ebe7b2c3d98507566
 Content-Type: application/json
 
 {
@@ -38,9 +43,10 @@ GET https://vgh-records.onrender.com
 ### Render get students
 GET https://vgh-records.onrender.com/students
 ### Render get one student
-GET https://vgh-records.onrender.com/students/64696f51d4ec1b8202bf251d
+GET https://vgh-records.onrender.com/students/64695d3ebe7b2c3d98507576
 ### Render add new student
 POST https://vgh-records.onrender.com/students
+Content-Type: application/json
 {
     "primerNombre": "McKay",
     "apellidos": "Thomas",
@@ -48,17 +54,22 @@ POST https://vgh-records.onrender.com/students
     "seccion": "A"
 }
 ### Render get class
-GET https://vgh-records.onrender.com/students/5/A
+GET https://vgh-records.onrender.com/students/grado
+Content-Type: application/json
+{
+    "grado": 5,
+    "seccion": "A"
+}
 ### Render api-docs
 GET https://vgh-records.onrender.com/api-docs
 ### Render
-DELETE https://vgh-records.onrender.com/students/64695d3ebe7b2c3d98507577
+DELETE https://vgh-records.onrender.com/students/64695d3ebe7b2c3d98507576
 ### Render
 PUT https://vgh-records.onrender.com/students/64695d3ebe7b2c3d98507576
 Content-Type: application/json
 
 {
-    "primerNombre": "John",
+    "primerNombre": "44343",
     "apellidos": "Smith",
     "grado": 4,
     "seccion": "D"

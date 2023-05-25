@@ -1,16 +1,17 @@
 const router = require('express').Router();
 const studentsController = require('../contollers/students');
+const validate = require('../model/validation.js');
 
 router.get('/', studentsController.getStudents);
 
-router.get('/:id', studentsController.getOneStudent);
+router.get('/grado', studentsController.getClass);
 
-router.get('/:grado/:seccion', studentsController.getClass);
+router.get('/:id', validate.validateId, studentsController.getOneStudent);
 
-router.post('/', studentsController.createStudent);
+router.post('/', validate.validateStudent, studentsController.createStudent);
 
-router.delete('/:id', studentsController.deleteStudent);
+router.delete('/:id', validate.validateId, studentsController.deleteStudent);
 
-router.put('/:id', studentsController.updateStudent);
+router.put('/:id', validate.validateId, validate.validateStudent, studentsController.updateStudent);
 
 module.exports = router;
