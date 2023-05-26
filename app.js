@@ -9,6 +9,16 @@ const port = process.env.port || 3000;
 app.use('/api-docs', swaggerUi.serve);
 app.get('/api-docs', swaggerUi.setup(swaggerDoc));
 
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.send({
+    error: {
+      status: err.status || 500,
+      message: err.message
+    }
+  });
+});
+
 app
   .use(bodyParser.json())
   .use((req, res, next) => {

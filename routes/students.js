@@ -4,7 +4,7 @@ const validate = require('../model/validation.js');
 
 router.get('/', studentsController.getStudents);
 
-router.get('/grado', studentsController.getClass);
+router.get('/grado', validate.validateClass, studentsController.getClass);
 
 router.get('/:id', validate.validateId, studentsController.getOneStudent);
 

@@ -3,7 +3,7 @@ GET http://localhost:3000
 ### Get all students
 GET http://localhost:3000/students
 ### Get one student by ID
-GET http://localhost:3000/students/64695d3ebe7b2c3d98507588
+GET http://localhost:3000/students/64695d3ebe7b2c3d98507566
 ### create student 
 POST http://localhost:3000/students
 Content-Type: application/json
@@ -11,14 +11,15 @@ Content-Type: application/json
 {
     "primerNombre": "McKay",
     "apellidos": "Thomas",
-    "grado": "3",
-    "seccion": "A"
+    "grado": 3,
+    "seccion": "AA"
 }
 ### Get all students of a grade and section
 GET http://localhost:3000/students/grado
 Content-Type: application/json
+
 {
-    "grado": 5,
+    "grado": "d",
     "seccion": "A"
 }
 ### api-docs
@@ -30,10 +31,10 @@ PUT http://localhost:3000/students/64695d3ebe7b2c3d98507566
 Content-Type: application/json
 
 {
-    "primerNombre": "John",
+    "primerNombre": "Jo*hn",
     "apellidos": "Smith",
     "grado": 4,
-    "seccion": "D"
+    "seccion": "A"
 }
 
 

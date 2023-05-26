@@ -1,6 +1,7 @@
 const mongodb = require('../db/connection');
 const ObjectId = require('mongodb').ObjectId;
 const { validationResult } = require('express-validator');
+const createError = require('http-errors');
 
 const getStudents = async (req, res) => {
   const result = await mongodb.getDb().db('vgh').collection('estudiantes').find();
@@ -17,22 +18,25 @@ const getStudents = async (req, res) => {
 const getOneStudent = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(404).send()
+    return res.status(404).json({ errors: errors.array() })
   }
 
   const studentId = new ObjectId(req.params.id);
   const result = await mongodb.getDb().db('vgh').collection('estudiantes').findOne({ _id: studentId });
   if (result) {
-    result.toArray().then((lists) => {
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists);
-    });
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(result);
   } else {
     return res.status(404).json({ message: 'Unable to find student' });
   }
 };
 
 const getClass = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(404).json({ errors: errors.array() });
+  }
+
   const grado = parseInt(req.body.grado);
   const seccion = req.body.seccion.toUpperCase();
   const result = await mongodb.getDb().db('vgh').collection('estudiantes').find({ grado: { $eq: grado }, seccion: { $eq: seccion }});
