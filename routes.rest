@@ -12,26 +12,26 @@ Content-Type: application/json
     "primerNombre": "McKay",
     "apellidos": "Thomas",
     "grado": 3,
-    "seccion": "AA"
+    "seccion": "A"
 }
 ### Get all students of a grade and section
 GET http://localhost:3000/students/grado
 Content-Type: application/json
 
 {
-    "grado": "d",
+    "grado": 5,
     "seccion": "A"
 }
 ### api-docs
 GET http://localhost:3000/api-docs
 ###
-DELETE http://localhost:3000/students/646fa99e3403b8b20994c9b5
+DELETE http://localhost:3000/students/64695d3ebe7b2c3d98507572
 ###
-PUT http://localhost:3000/students/64695d3ebe7b2c3d98507566
+PUT http://localhost:3000/students/64695d3ebe7b2c3d98507572
 Content-Type: application/json
 
 {
-    "primerNombre": "Jo*hn",
+    "primerNombre": "John",
     "apellidos": "Smith",
     "grado": 4,
     "seccion": "A"
