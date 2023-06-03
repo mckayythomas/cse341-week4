@@ -5,17 +5,47 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDoc = require('./swagger.json');
 const db = require('./db/connection.js');
 const port = process.env.port || 3000;
+const dotenv = require('dotenv');
+dotenv.config();
+const axios = require('axios');
 
 app.use('/api-docs', swaggerUi.serve);
 app.get('/api-docs', swaggerUi.setup(swaggerDoc));
 
-app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.send({
-    error: {
-      status: err.status || 500,
-      message: err.message
-    }
+app.get('/github-oauth', (req, res) => {
+  res.redirect(
+    `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`
+  );
+});
+
+app.get('/github-oauth-callback', ({ query: { code } }, res) => {
+  const body = new URLSearchParams();
+  body.append('client_id', process.env.GITHUB_CLIENT_ID);
+  body.append('client_secret', process.env.GITHUB_SECRET);
+  body.append('code', code);
+  
+  const headers = {
+    'Accept': 'application/json',
+  };
+
+  const config = {
+    headers,
+  };
+
+  axios
+  .post('https://github.com/login/oauth/access_token', body, config)
+  .then(response => {
+    console.log(response)
+    const token = response.data.access_token;
+
+    console.log('My token:', token);
+
+    res.redirect(`/?token=${token}`);
+  })
+  .catch(error => {
+    res.status(500).json({
+      err: error.message,
+    });
   });
 });
 
