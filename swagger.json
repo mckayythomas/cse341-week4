@@ -188,6 +188,29 @@
           }
         }
       }
+    },
+    "/oauth/github": {
+      "get": {
+        "description": "Initiate GitHub OAuth flow",
+        "responses": {
+          "302": {
+            "description": "Found"
+          }
+        }
+      }
+    },
+    "/oauth/github-authorized": {
+      "get": {
+        "description": "GitHub OAuth callback",
+        "responses": {
+          "302": {
+            "description": "Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "definitions": {
