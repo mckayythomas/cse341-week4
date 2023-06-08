@@ -5,6 +5,10 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDoc = require('./swagger.json');
 const db = require('./db/connection.js');
 const port = process.env.port || 3000;
+const crypto = require('crypto');
+const session = require('express-session')
+
+const sessionSecret = crypto.randomBytes(32).toString('hex');
 
 app.use('/api-docs', swaggerUi.serve);
 app.get('/api-docs', swaggerUi.setup(swaggerDoc));
@@ -15,6 +19,13 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
+  .use(
+    session({
+      secret: sessionSecret,
+      resave: false,
+      saveUninitialized: false
+    })
+  )
   .use('/', require('./routes'));
 
 db.initDb((err, mongodb) => {
