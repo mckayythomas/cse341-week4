@@ -1,0 +1,221 @@
+[
+    {
+        "primerNombre": "Carlos",
+        "apellidos": "González",
+        "classes": [
+        "60c0c111ae4278300f8765a1",
+        "60c0c111ae4278300f8765a2" 
+        ],
+        "tutor": 0,
+        "tutorGrado": null,
+        "tutorSeccion": null,
+        "pay": 5000
+    },
+    {
+        "primerNombre": "María",
+        "apellidos": "López",
+        "classes": [
+        "60c0c111ae4278300f8765a3" 
+        ],
+        "tutor": 1,
+        "tutorGrado": 3,
+        "tutorSeccion": "A",
+        "pay": 6000
+    },
+    {
+        "primerNombre": "Pedro",
+        "apellidos": "Sánchez",
+        "classes": [
+        "60c0c111ae4278300f8765a4",
+        "60c0c111ae4278300f8765a5" 
+        ],
+        "tutor": 1,
+        "tutorGrado": 2,
+        "tutorSeccion": "B",
+        "pay": 5500
+    },
+    {
+        "primerNombre": "Ana",
+        "apellidos": "Martínez",
+        "classes": [
+        "60c0c111ae4278300f8765a6" 
+        ],
+        "tutor": 0,
+        "tutorGrado": null,
+        "tutorSeccion": null,
+        "pay": 5000
+    },
+    {
+        "primerNombre": "José",
+        "apellidos": "Rodríguez",
+        "classes": [
+        "60c0c111ae4278300f8765a7",
+        "60c0c111ae4278300f8765a8" 
+        ],
+        "tutor": 1,
+        "tutorGrado": 4,
+        "tutorSeccion": "C",
+        "pay": 6500
+    },
+    {
+        "primerNombre": "Laura",
+        "apellidos": "Fernández",
+        "classes": [
+        "60c0c111ae4278300f8765a9" 
+        ],
+        "tutor": 0,
+        "tutorGrado": null,
+        "tutorSeccion": null,
+        "pay": 5000
+    },
+    {
+        "primerNombre": "Juan",
+        "apellidos": "Gómez",
+        "classes": [
+        "60c0c111ae4278300f8765aa" 
+        ],
+        "tutor": 1,
+        "tutorGrado": 1,
+        "tutorSeccion": "D",
+        "pay": 6000
+    },
+    {
+        "primerNombre": "Isabel",
+        "apellidos": "Torres",
+        "classes": [
+        "60c0c111ae4278300f8765ab" 
+        ],
+        "tutor": 0,
+        "tutorGrado": null,
+        "tutorSeccion": null,
+        "pay": 5000
+    },
+    {
+        "primerNombre": "Luis",
+        "apellidos": "Pérez",
+        "classes": [
+        "60c0c111ae4278300f8765a8"  
+        ],
+        "tutor": 1,
+        "tutorGrado": 5,
+        "tutorSeccion": "A",
+        "pay": 7000
+    },
+    {
+        "primerNombre": "Alejandro",
+        "apellidos": "Díaz",
+        "classes": [
+            "60c0c111ae4278300f8765a5",
+            "60c0c111ae4278300f8765a6" 
+        ],
+        "tutor": 1,
+        "tutorGrado": 3,
+        "tutorSeccion": "B",
+        "pay": 5500
+    },
+    {
+        "primerNombre": "Carmen",
+        "apellidos": "Herrera",
+        "classes": [
+            "60c0c111ae4278300f8765aa",
+            "60c0c111ae4278300f8765ab" 
+        ],
+        "tutor": 0,
+        "tutorGrado": null,
+        "tutorSeccion": null,
+        "pay": 5000
+    },
+    {
+        "primerNombre": "Raúl",
+        "apellidos": "Ortega",
+        "classes": [
+            "60c0c111ae4278300f8765a2" 
+        ],
+        "tutor": 1,
+        "tutorGrado": 4,
+        "tutorSeccion": "C",
+        "pay": 6500
+    },
+    {
+        "primerNombre": "Patricia",
+        "apellidos": "Navarro",
+        "classes": [
+            "60c0c111ae4278300f8765a9",
+            "60c0c111ae4278300f8765aa" 
+        ],
+        "tutor": 0,
+        "tutorGrado": null,
+        "tutorSeccion": null,
+        "pay": 5000
+    },
+    {
+        "primerNombre": "Antonio",
+        "apellidos": "Silva",
+        "classes": [
+            "60c0c111ae4278300f8765a8", 
+            "60c0c111ae4278300f8765ab" 
+        ],
+        "tutor": 1,
+        "tutorGrado": 2,
+        "tutorSeccion": "D",
+        "pay": 6000
+    },
+    {
+        "primerNombre": "Elena",
+        "apellidos": "Giménez",
+        "classes": [
+            "60c0c111ae4278300f8765a4" 
+        ],
+        "tutor": 0,
+        "tutorGrado": null,
+        "tutorSeccion": null,
+        "pay": 5000
+    },
+    {
+        "primerNombre": "Ricardo",
+        "apellidos": "Cano",
+        "classes": [
+            "60c0c111ae4278300f8765a7",
+            "60c0c111ae4278300f8765a9" 
+        ],
+        "tutor": 1,
+        "tutorGrado": 5,
+        "tutorSeccion": "A",
+        "pay": 7000
+    },
+    {
+        "primerNombre": "Laura",
+        "apellidos": "Rojas",
+        "classes": [
+            "60c0c111ae4278300f8765a3" 
+        ],
+        "tutor": 0,
+        "tutorGrado": null,
+        "tutorSeccion": null,
+        "pay": 5000
+    },
+    {
+        "primerNombre": "Francisco",
+        "apellidos": "Vargas",
+        "classes": [
+            "60c0c111ae4278300f8765a1",
+            "60c0c111ae4278300f8765a6" 
+        ],
+        "tutor": 1,
+        "tutorGrado": 3,
+        "tutorSeccion": "B",
+        "pay": 5500
+    },
+    {
+        "primerNombre": "Sara",
+        "apellidos": "Morales",
+        "classes": [
+            "60c0c111ae4278300f8765a5",
+            "60c0c111ae4278300f8765a7"
+        ], 
+        "tutor": 0,
+        "tutorGrado": null,
+        "tutorSeccion": null,
+        "pay": 5000
+    }
+]
