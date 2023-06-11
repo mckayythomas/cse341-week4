@@ -48,8 +48,8 @@ const createProfessor = async (req, res) => {
       }
   
       let { primerNombre, apellidos, classes, tutor, tutorGrado, tutorSeccion, pay } = req.body;
-      grado = parseInt(grado);
-      seccion = seccion.toUpperCase();
+      tutorGrado = parseInt(tutorGrado);
+      tutorSeccion = tutorSeccion.toUpperCase();
       pay = parseInt(pay);
   
       const document = {
@@ -133,9 +133,7 @@ const createProfessor = async (req, res) => {
         }
 
         const classIds = professor.classes;
-        console.log(classIds)
         const result = await mongodb.getDb().db('vgh').collection('class').find({ _id: {$in:classIds}});
-        console.log(result)
         if (result) {
             result.toArray().then((lists) => {
                 res.setHeader('Content-Type', 'application/json');

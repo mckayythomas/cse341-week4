@@ -37,7 +37,42 @@ Content-Type: application/json
     "seccion": "A"
 }
 ###
+PUT http://localhost:3000/professors/648568b51ff9ffb6244c8254
+Content-Type: application/json
+
+{
+  "primerNombre": "any",
+  "apellidos": "any",
+  "classes": ["60c0c111ae4278300f8765aa"],
+  "tutor": 1,
+  "tutorGrado": 4,
+  "tutorSeccion": "D",
+  "pay": 5000
+}
+###
+POST http://localhost:3000/professors
+Content-Type: application/json
+
+{
+  "primerNombre": "any",
+  "apellidos": "any",
+  "classes": ["60c0c111ae4278300f8765aa"],
+  "tutor": 1,
+  "tutorGrado": 4,
+  "tutorSeccion": "D",
+  "pay": 5000
+}
+###
+DELETE  http://localhost:3000/professors/648568b51ff9ffb6244c8254
+###
 GET http://localhost:3000/professors
+###
+GET http://localhost:3000/professors/6483db4cee295962f95a34c4
+###
+GET http://localhost:3000/professors/teaches/6483db4cee295962f95a34c4
+
+
+
 
 
 ### RENDER TESTING
