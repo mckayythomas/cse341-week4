@@ -162,7 +162,7 @@
         }
       }
     },
-    "/students/{id}/classes": {
+    "/students/grado": {
       "get": {
         "description": "Get a student's classes by ID",
         "produces": [
@@ -170,10 +170,14 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
+            "grado": {
+              "example": "any"
+            }
+          },
+          {
+            "seccion": {
+              "example": "any"
+            }
           }
         ],
         "responses": {
@@ -211,13 +215,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
+                "primerNombre": {
                   "example": "any"
                 },
-                "lastName": {
+                "apellidos": {
                   "example": "any"
                 },
-                "department": {
+                "classes": {
+                  "example": "any"
+                },
+                "tutor": {
+                  "example": "any"
+                },
+                "tutorGrado": {
+                  "example": "any"
+                },
+                "tutorSeccion": {
+                  "example": "any"
+                },
+                "pay": {
                   "example": "any"
                 }
               }
@@ -294,13 +310,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
+                "primerNombre": {
                   "example": "any"
                 },
-                "lastName": {
+                "apellidos": {
                   "example": "any"
                 },
-                "department": {
+                "classes": {
+                  "example": "any"
+                },
+                "tutor": {
+                  "example": "any"
+                },
+                "tutorGrado": {
+                  "example": "any"
+                },
+                "tutorSeccion": {
+                  "example": "any"
+                },
+                "pay": {
                   "example": "any"
                 }
               }
@@ -320,7 +348,7 @@
         }
       }
     },
-    "/professors/{id}/classes": {
+    "/professors/teaches/{id}": {
       "get": {
         "description": "Get a professor's classes by ID",
         "produces": [
