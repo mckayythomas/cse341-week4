@@ -170,13 +170,24 @@
         ],
         "parameters": [
           {
-            "grado": {
-              "example": "any"
-            }
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           },
           {
-            "seccion": {
-              "example": "any"
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "grado": {
+                  "example": "any"
+                },
+                "seccion": {
+                  "example": "any"
+                }
+              }
             }
           }
         ],

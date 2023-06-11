@@ -59,7 +59,7 @@ const validateProf = [
         .isLength({ min: 1, max: 1 }).withMessage('Seccion must be a single letter')
         .matches(/^[a-zA-Z]+$/).withMessage('Primer Nombre must contain letters only')
         .trim(),
-    check('Pay')
+    check('pay')
         .notEmpty().withMessage('Pay is required')
         .isInt().withMessage('Pay must be a number')
         .trim(),    
