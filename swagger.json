@@ -353,39 +353,6 @@
       "tokenUrl": "https://github.com/login/oauth/access_token",
       "scopes": {}
     }
-  },
-  "/oauth/github": {
-    "get": {
-      "description": "Initiate OAuth flow with GitHub",
-      "security": [
-        {
-          "OAuth2": ["read", "write"]
-        }
-      ],
-      "responses": {
-        "302": {
-          "description": "Found"
-        }
-      }
-    }
-  },
-  "/oauth/github-authorized": {
-    "get": {
-      "description": "OAuth callback route for GitHub",
-      "security": [
-        {
-          "OAuth2": ["read", "write"]
-        }
-      ],
-      "responses": {
-        "302": {
-          "description": "Found"
-        },
-        "500": {
-          "description": "Internal Server Error"
-        }
-      }
-    }
   },  
   "definitions": {
     "openapi": {
