@@ -6,11 +6,11 @@ router.get('/', professorController.getProfessors);
 
 router.get('/:id', validate.validateId, professorController.getOneProfessor);
 
-router.post('/', validate.validateStudent, professorController.createProfessor);
+router.post('/', validate.validateProf, professorController.createProfessor);
 
 router.delete('/:id', validate.validateId, professorController.deleteProfessor);
 
-router.put('/:id', validate.validateId, validate.validateStudent, professorController.updateProfessor);
+router.put('/:id', validate.validateId, validate.validateProf, professorController.updateProfessor);
 
 router.get('/teaches/:id', validate.validateId, professorController.getClassesByProfessor);
 
