@@ -65,7 +65,7 @@ const createProfessor = async (req, res) => {
   
       const result = await mongodb.getDb().db('vgh').collection('profesores').insertOne(document);
       if (result.acknowledged) {
-        res.status(201).json({ message: 'Student created successfully!', id: result.insertedId });
+        res.status(201).json({ message: 'Professor created successfully!', id: result.insertedId });
       } else {
         console.error(result.error);
         res.status(500).json({ message: 'Something went wrong.' });
