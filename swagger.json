@@ -164,22 +164,28 @@
     },
     "/students/grado": {
       "get": {
-        "description": "Get a student's classes by grado and seccion",
-        "produces": ["application/json"],
+        "description": "Get a student's classes by ID",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "name": "grado",
-            "in": "query",
-            "required": true,
-            "type": "integer",
-            "example": 5
-          },
-          {
-            "name": "seccion",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "example": "A"
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "grado": {
+                  "type": "integer",
+                  "example": 5
+                },
+                "seccion": {
+                  "type": "string",
+                  "example": "A"
+                }
+              },
+              "required": ["grado", "seccion"]
+            }
           }
         ],
         "responses": {
