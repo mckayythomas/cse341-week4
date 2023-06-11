@@ -191,7 +191,7 @@
           }
         }
       }
-    }go,
+    },
     "/professors": {
       "get": {
         "description": "Get all professors",
