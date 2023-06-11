@@ -170,6 +170,10 @@
         ],
         "parameters": [
           {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
               "properties": {
                 "grado": {
                   "example": "any"
@@ -179,7 +183,7 @@
                 }
               }
             }
-          
+          }
         ],
         "responses": {
           "200": {
