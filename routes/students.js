@@ -4,8 +4,6 @@ const validate = require('../model/validation.js');
 
 router.get('/', studentsController.getStudents);
 
-router.get('/grado', validate.validateClass, studentsController.getClass);
-
 router.get('/:id', validate.validateId, studentsController.getOneStudent);
 
 router.post('/', validate.validateStudent, studentsController.createStudent);
