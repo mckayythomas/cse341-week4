@@ -170,21 +170,16 @@
         ],
         "parameters": [
           {
-            "name": "grado",
-            "in": "query",
-            "description": "Grade of the student",
-            "required": true,
-            "type": "string",
-            "example": "any"
-          },
-          {
-            "name": "seccion",
-            "in": "query",
-            "description": "Section of the student",
-            "required": true,
-            "type": "string",
-            "example": "any"
-          }    
+              "properties": {
+                "grado": {
+                  "example": "any"
+                },
+                "seccion": {
+                  "example": "any"
+                }
+              }
+            }
+          
         ],
         "responses": {
           "200": {
