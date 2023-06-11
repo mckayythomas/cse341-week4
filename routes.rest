@@ -36,6 +36,8 @@ Content-Type: application/json
     "grado": 4,
     "seccion": "A"
 }
+###
+GET http://localhost:3000/professors
 
 
 ### RENDER TESTING

@@ -1,255 +1,340 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.0",
-    "title": "REST API",
-    "description": ""
+    "title": "API Documentation",
+    "description": "API endpoints for VGH",
+    "version": "1.0.0"
   },
-  "host": "vgh-records.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["http", "https"],
   "paths": {
     "/": {
       "get": {
-        "description": "API home page",
-        "parameters": [],
+        "description": "Get the welcome message",
         "responses": {
           "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/students/": {
-      "get": {
-        "description": "Get all students",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "post": {
-        "description": "Add new student",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
+            "description": "Success",
             "schema": {
-              "type": "object",
-              "properties": {
-                "primerNombre": {
-                  "example": "any"
-                },
-                "apellidos": {
-                  "example": "any"
-                },
-                "grado": {
-                  "example": "any"
-                },
-                "seccion": {
-                  "example": "any"
-                }
-              }
+              "type": "string"
             }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/students/{id}": {
-      "get": {
-        "description": "Get a single student by id.",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "delete": {
-        "description": "Delete a student by id",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "put": {
-        "description": "Update a student by id",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "primerNombre": {
-                  "example": "any"
-                },
-                "apellidos": {
-                  "example": "any"
-                },
-                "grado": {
-                  "example": "any"
-                },
-                "seccion": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
-    "/students/{grado}/{seccion}": {
-      "get": {
-        "description": "Get students from a single class and section",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "grado",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "seccion",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
           }
         }
       }
     },
     "/oauth/github": {
       "get": {
-        "description": "Initiate GitHub OAuth flow",
+        "description": "Initiate GitHub OAuth2 authentication",
         "responses": {
           "302": {
-            "description": "Found"
+            "description": "Redirect to GitHub authorization page"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["read", "write"]
+          }
+        ]
       }
     },
     "/oauth/github-authorized": {
       "get": {
-        "description": "GitHub OAuth callback",
+        "description": "Callback URL for GitHub OAuth2 authentication",
         "responses": {
           "302": {
-            "description": "Found"
+            "description": "Redirect to home page after successful authentication"
+          }
+        },
+        "security": [
+          {
+            "OAuth2": ["read", "write"]
+          }
+        ]
+      }
+    },
+    "/students": {
+      "get": {
+        "description": "Get all students",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Student"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new student",
+        "parameters": [
+          {
+            "name": "student",
+            "in": "body",
+            "description": "Student object",
+            "schema": {
+              "$ref": "#/definitions/StudentInput"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Student created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{id}": {
+      "get": {
+        "description": "Get a student by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Student ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a student",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Student ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Student deleted successfully"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a student",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Student ID",
+            "required": true,
+            "type": "string"
           },
-          "500": {
-            "description": "Internal Server Error"
+          {
+            "name": "student",
+            "in": "body",
+            "description": "Updated student object",
+            "schema": {
+              "$ref": "#/definitions/StudentInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Student updated successfully"
+          }
+        }
+      }
+    },
+    "/professors": {
+      "get": {
+        "description": "Get all professors",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Professor"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new professor",
+        "parameters": [
+          {
+            "name": "professor",
+            "in": "body",
+            "description": "Professor object",
+            "schema": {
+              "$ref": "#/definitions/ProfessorInput"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Professor created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/professors/{id}": {
+      "get": {
+        "description": "Get a professor by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Professor ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Professor"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a professor",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Professor ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Professor deleted successfully"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a professor",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Professor ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "professor",
+            "in": "body",
+            "description": "Updated professor object",
+            "schema": {
+              "$ref": "#/definitions/ProfessorInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Professor updated successfully"
           }
         }
       }
     }
   },
-  "definitions": {
-    "openapi": {
-      "type": "string",
-      "example": "3.0.0"
-    },
-    "info": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string",
-          "example": "Contacts API"
-        },
-        "version": {
-          "type": "string",
-          "example": "1.0.0"
-        },
-        "description": {
-          "type": "string",
-          "example": "API documentation for VGH student records application"
-        }
-      }
-    },
-    "host": {
-      "type": "string",
-      "example": "render.com"
-    },
-    "schemes": {
-      "type": "array",
-      "example": [
-        "http"
-      ],
-      "items": {
-        "type": "string"
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "description": "OAuth2 authorization",
+      "flow": "accessCode",
+      "authorizationUrl": "https://example.com/oauth/authorize",
+      "tokenUrl": "https://example.com/oauth/token",
+      "scopes": {
+        "read": "Grants read access",
+        "write": "Grants write access"
       }
     }
   },
-  "apis": [
-    "./src/routes/*.js"
-  ]
+  "definitions": {
+    "Student": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Professor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        }
+      }
+    },
+    "StudentInput": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ProfessorInput": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        }
+      }
+    }
+  }
 }

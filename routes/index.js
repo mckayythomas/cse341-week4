@@ -17,8 +17,6 @@ router.use('/oauth', require('./oauth'));
 
 router.use('/students', OAuth.requireOAuthSession, require('./students'));
 
-router.use('/professors', require('./professors'))
-
-router.use('/class', require('./classes'))
+router.use('/professors', OAuth.requireOAuthSession, require('./professors'))
 
 module.exports = router;
