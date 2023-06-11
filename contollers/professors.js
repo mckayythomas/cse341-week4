@@ -105,7 +105,7 @@ const createProfessor = async (req, res) => {
   
       const professorId = new ObjectId(req.params.id);
       const { primerNombre, apellidos, classes, tutor, tutorGrado, tutorSeccion, pay } = req.body;
-      const update = { primerNombre: primerNombre, apellidos: apellidos, classes: classes, tutor: tutor, tutorGrado: tutorGrado, tutorSeccion: tutorSeccion, pay };
+      const update = { primerNombre: primerNombre, apellidos: apellidos, classes: classes, tutor: tutor, tutorGrado: tutorGrado, tutorSeccion: tutorSeccion, pay: pay };
       const result = await mongodb.getDb().db('vgh').collection('profesores').updateOne({ _id: professorId }, { $set: update });
       console.log(result)
       if (result.matchedCount !== 0) {
