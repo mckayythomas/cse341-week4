@@ -47,17 +47,20 @@ const createProfessor = async (req, res) => {
         return res.status(400).json({ errors: errors.array() });
       }
   
-      let { primerNombre, apellidos, grado, seccion } = req.body;
+      let { primerNombre, apellidos, classes, tutor, tutorGrado, tutorSeccion, pay } = req.body;
       grado = parseInt(grado);
       seccion = seccion.toUpperCase();
+      pay = parseInt(pay);
   
       const document = {
-        contact: {
-          primerNombre,
-          apellidos,
-          grado,
-          seccion
-        }
+        primerNombre,
+        apellidos,
+        classes,
+        tutor,
+        tutorGrado,
+        tutorSeccion,
+        pay
+        
       };
   
       const result = await mongodb.getDb().db('vgh').collection('profesores').insertOne(document);
@@ -101,8 +104,8 @@ const createProfessor = async (req, res) => {
       }
   
       const professorId = new ObjectId(req.params.id);
-      const { primerNombre, apellidos, grado, seccion } = req.body;
-      const update = { primerNombre: primerNombre, apellidos: apellidos, grado: grado, seccion: seccion };
+      const { primerNombre, apellidos, classes, tutor, tutorGrado, tutorSeccion, pay } = req.body;
+      const update = { primerNombre: primerNombre, apellidos: apellidos, classes: classes, tutor: tutor, tutorGrado: tutorGrado, tutorSeccion: tutorSeccion, pay };
       const result = await mongodb.getDb().db('vgh').collection('profesores').updateOne({ _id: professorId }, { $set: update });
       console.log(result)
       if (result.matchedCount !== 0) {

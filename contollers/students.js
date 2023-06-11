@@ -76,12 +76,10 @@ const createStudent = async (req, res) => {
     seccion = seccion.toUpperCase();
 
     const document = {
-      contact: {
-        primerNombre,
-        apellidos,
-        grado,
-        seccion
-      }
+      primerNombre,
+      apellidos,
+      grado,
+      seccion
     };
 
     const result = await mongodb.getDb().db('vgh').collection('estudiantes').insertOne(document);
